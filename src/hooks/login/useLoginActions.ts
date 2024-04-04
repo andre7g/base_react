@@ -1,5 +1,5 @@
 
-import { login } from '../../store/slices/auth';
+import { login, logout } from '../../store/slices/auth';
 import { useCustomDispatch } from '../../hooks/redux';
 import { LoginResponse } from 'interfaces/login/LoginResponse';
 
@@ -18,6 +18,15 @@ export const useLoginActions = () => {
             return null;
         }
     }
-
-    return { loginAction };
+    
+    const logoutAction = async () => {
+        try {
+            await dispatch(logout());
+            return true
+        } catch (error) {
+            console.error('Error al iniciar sesión:', error);
+            return false;
+        }
+    }
+    return { loginAction,logoutAction };
 }

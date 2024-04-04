@@ -1,9 +1,24 @@
+import { MouseEvent } from 'react';
 import { useCustomSelector } from '../../hooks/redux';
 import { Link, NavLink } from 'react-router-dom';
-
+import { useLoginActions } from '../../hooks/login/useLoginActions';
 
 export const Navbar = () => {
     const auth = useCustomSelector((state) => state.auth);
+    const { logoutAction } = useLoginActions();
+
+    const handleLogout = async (event: MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+        try {
+          const res = await logoutAction();
+          console.log(res)
+        //   if(res?.status){
+        //     setRedirectToHome(true);
+        //   }
+        } catch (error) {
+          console.log(error) // Manejar el error aquí
+        }
+      };
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2">
             
@@ -19,14 +34,14 @@ export const Navbar = () => {
 
                     <NavLink 
                         className={({ isActive }) => `nav-item nav-link ${ isActive ? 'active':''}`} 
-                        to="/ingredientes"
+                        to="/productos"
                     >
                         Productos
                     </NavLink>
 
                     <NavLink 
                         className={({ isActive }) => `nav-item nav-link ${ isActive ? 'active':''}`} 
-                        to="/consulta"
+                        to="/ingredientes"
                     >
                         Ingredientes
                     </NavLink>
@@ -38,9 +53,10 @@ export const Navbar = () => {
                     <span className='nav-item nav-link text-primary'>
                         { auth.name }
                     </span>
-                    <button className='nav-item nav-link btn'>
-                        Loguot
+                    <button className='nav-item nav-link btn' onClick={handleLogout}>
+                    Logout
                     </button>
+
 
                 </ul>
             </div>

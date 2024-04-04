@@ -12,11 +12,15 @@ const persistAuthConfig = {
 
 // Importación del reducer de autenticación desde el archivo auth.ts en el directorio slices
 import authReducer from './slices/auth';
+import tiposproducto from "./slices/tiposproducto";
+import productos from "./slices/productos";
 
 // Configuración de la tienda de Redux con un único reducer para el estado de autenticación
 const store = configureStore({
     reducer: {
         auth: persistReducer<ReturnType<typeof authReducer>>(persistAuthConfig,authReducer), // Definición del slice 'auth' que utiliza el reducer 'authReducer'
+        tiposproducto: tiposproducto,
+        productos: productos
     },
     middleware: (defaultMiddleware) => defaultMiddleware({
         serializableCheck: false

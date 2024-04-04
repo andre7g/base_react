@@ -44,9 +44,8 @@ export const login =
     (data: Login): Thunk =>
     async (dispatch): Promise<LoginResponse | AxiosError> => {
         try{
-            const respuesta: AxiosResponse = await axios.post('Usuarios/AuthenticateUser',data);
+            const respuesta: AxiosResponse = await axios.post('api/Usuarios/AuthenticateUser',data);
             const res: LoginResponse = respuesta.data;
-            console.log(res.status)
             if(res.status === 200){
                 dispatch(setLogged(true));
                 dispatch(setAccesToken(res.data.token));
@@ -62,5 +61,19 @@ export const login =
             dispatch(setAccesToken(null));
             dispatch(setUser(null));
             return e as AxiosError;
+        }
+    } 
+
+export const logout = 
+    (): Thunk =>
+    async (dispatch) => {
+        try{
+            console.log("si entra")
+            dispatch(setLogged(false));
+            dispatch(setAccesToken(null));
+            dispatch(setUser(null));
+        }catch(e){
+
+            console.log(e);
         }
     } 
