@@ -1,17 +1,23 @@
+
 import { login } from '../../store/slices/auth';
 import { useCustomDispatch } from '../../hooks/redux';
+import { LoginResponse } from 'interfaces/login/LoginResponse';
 
 export const useLoginActions = () => {
     const dispatch = useCustomDispatch();
- 
-    const loginAction = () => {
-      dispatch(login({
-        email:"alejandroaleman281195@gmail.com",
-        password:"Fer2020*"
-      })).then(res=>{
-        // setData(res as LoginResponse); // Asigna res al estado data
-        console.log(res);
-      });
+  
+    const loginAction = async (username: string, password: string): Promise<LoginResponse | null> => {
+        try {
+            const res = await dispatch(login({
+                usuario: username,
+                password: password
+            }));
+            return res as LoginResponse;
+        } catch (error) {
+            console.error('Error al iniciar sesión:', error);
+            return null;
+        }
     }
-  return {loginAction}
+
+    return { loginAction };
 }

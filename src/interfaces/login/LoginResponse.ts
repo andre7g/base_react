@@ -7,11 +7,12 @@ export interface LoginResponse {
 }
 
 export interface Data {
-    email:  string;
-    tokens: Tokens;
-}
-
-export interface Tokens {
-    refresh: string;
-    access:  string;
+    id:        number;
+    usuario:   string;
+    nombres:   string;
+    apellidos: string;
+    pass:      string;
+    rol:       number;
+    estadoId:  number;
+    token:     string;
 }

@@ -1,0 +1,64 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta la altura para que el formulario ocupe toda la pantalla verticalmente */
+  }
+  
+  .login-form {
+    width: 30%; /* Cambia el valor para hacer el formulario más ancho */
+    margin: 0 auto; /* Esto centrará el formulario horizontalmente en la pantalla */
+    padding: 20px;
+    border: 1px solid #050942;
+    border-radius: 5px;
+    background-color: rgb(197, 201, 248);
+  }
+  
+  
+  .login-heading {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #050942;
+    /* font-family: Arial, sans-serif; */
+    font-size: 24px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #050942;
+    /* font-family: Arial, sans-serif; */
+    font-size: 16px;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #050942;
+    border-radius: 3px;
+    box-sizing: border-box;
+    /* font-family: Arial, sans-serif; */
+    font-size: 16px;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #050942;
+    color: #ffffff;
+    cursor: pointer;
+    /* font-family: Arial, sans-serif; */
+    font-size: 16px;
+  }
+  
+  .login-button:hover {
+    background-color: #11176d;
+  }
+  

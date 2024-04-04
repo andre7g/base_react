@@ -1,5 +1,4 @@
 import { useCustomSelector } from '../../hooks/redux';
-import { useLoginActions } from '../../hooks/login/useLoginActions';
 
 const Home = () => {
   
@@ -7,13 +6,13 @@ const Home = () => {
 
   console.log(auth.token);
 
-  const { loginAction } = useLoginActions();
+  // const { loginAction } = useLoginActions();
 
   
   return (
     <>
       <h1>{ auth.token }</h1>
-      <button onClick={ loginAction }>Login</button>
+      {/* <button onClick={ loginAction }>Login</button> */}
     </>
   );
 }

@@ -7,7 +7,7 @@ import storage from "redux-persist/lib/storage";
 const persistAuthConfig = {
     key:'auth',
     storage,
-    whitelist:['token']
+    whitelist:['token','name','isLogged']
 }
 
 // Importación del reducer de autenticación desde el archivo auth.ts en el directorio slices
