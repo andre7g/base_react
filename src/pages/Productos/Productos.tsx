@@ -188,7 +188,7 @@ const Productos = () => {
                             <td>{producto.id}</td>
                             <td>{producto.producto}</td>
                             <td>{producto.descripcion}</td>
-                            <td>{producto.tipo_productosId}</td>
+                            <td>{producto.tipo_productosId === 1 ? 'Plaguicidas' :'Fertilizantes'}</td>
                             <td>
                                 <Button variant="primary" onClick={() => handleGetById(producto.id)}>
                                     Modificar
